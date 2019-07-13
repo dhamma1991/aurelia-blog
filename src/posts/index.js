@@ -13,13 +13,10 @@ export class Index {
   attached() {
     /* Go get the posts data, and then... */
     this.postService.allPostPreviews().then(data => {
-      if(data.errors) {
-        // Handle the errors somehow
-      } else {
-        /* If there are no errors, data.posts will show up which is an array of posts */
-        this.posts = data.posts;
-        console.log(this.posts);
-      }
+      this.posts = data.posts;
+    }).catch(error => {
+      /* Set the error property of this view model to the contents of any errors thrown from the backend */
+      this.error = error.message;
     })
   }
 }
