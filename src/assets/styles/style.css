@@ -306,8 +306,8 @@
     color: #212529;
   }
   
-  .post-preview > .post-meta > a:focus, .post-preview > .post-meta > a:hover {
-    text-decoration: underline;
+  .post-preview a:focus, .post-preview a:hover {
+    text-decoration: none;
     color: #0085A1;
   }
   
