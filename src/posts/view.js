@@ -8,14 +8,13 @@ export class View {
   }
 
   activate(params) {
+    this.error = '';
     /* The find method here is provided by the post-service js
       It returns either the post or an error */
     this.postService.find(params.slug).then(data => {
-      if(data.error) {
-        this.error = data.error;
-      } else {
-        this.post = data.post;
-      }
+      this.post = data.post;
+    }).catch(error => {
+      this.error = error.message;
     })
   }
 }
