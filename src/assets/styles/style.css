@@ -306,7 +306,7 @@
     color: #212529;
   }
   
-  .post-preview a:focus, .post-preview a:hover {
+  a:focus, a:hover {
     text-decoration: none;
     color: #0085A1;
   }
