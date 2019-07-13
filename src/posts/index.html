@@ -10,9 +10,15 @@
       Posted by <a href="#">${post.author}</a> on ${post.createdAt}
     </p>
 
+    <p class="post-subtitle">
+      ${post.body}
+    </p>
+
     <p>
       <a href="" repeat.for="tag of post.tags">
-        <span class="badge badge-pill badge-info">${tag}</span>
+        <span class="badge badge-pill badge-info">
+          ${tag}
+        </span>
       </a>
     </p>
   </div>
