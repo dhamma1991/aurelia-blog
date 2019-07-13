@@ -1,5 +1,10 @@
 <template>
-  <div class="post-preview">
+  <!-- if.bind ensures that this div will only show if error exists -->
+  <div class="alert alert-danger" if.bind="error">
+    ${error}
+  </div>
+
+  <div class="post-preview" if.bind="!error">
     <h2 class="post-title">
       ${post.title}
     </h2>
