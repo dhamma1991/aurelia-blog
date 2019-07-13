@@ -1,4 +1,5 @@
 import bootstrap from 'bootstrap';
+import { PLATFORM } from "aurelia-framework";
 
 export class App {
   message = 'Hello World!';
@@ -8,7 +9,7 @@ export class App {
 
     /* Pass an array of routes to config.map */
     config.map([
-      { route: '', name: 'home', moduleId: 'posts/index', title: 'All Posts'}
+      { route: '', name: 'home', moduleId: PLATFORM.moduleName('posts/index'), title: 'All Posts'}
     ]);
   }
 }
