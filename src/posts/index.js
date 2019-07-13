@@ -11,6 +11,10 @@ export class Index {
 
   /* This fires when the component is attached to the DOM */
   attached() {
+    /* Ensure error is clear when the component is first attached to the DOM
+      Catch will ensure that the error does get set if one is thrown */
+    this.error = '';
+
     /* Go get the posts data, and then... */
     this.postService.allPostPreviews().then(data => {
       this.posts = data.posts;
