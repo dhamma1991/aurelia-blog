@@ -6,6 +6,20 @@ import {PostService} from '../common/services/post-service';
 @inject(PostService)
 export class Index {
   constructor(PostService) {
-    this.PostService = PostService;
+    this.postService = PostService;
+  }
+
+  /* This fires when the component is attached to the DOM */
+  attached() {
+    /* Go get the posts data, and then... */
+    this.postService.allPostPreviews().then(data => {
+      if(data.errors) {
+        // Handle the errors somehow
+      } else {
+        /* If there are no errors, data.posts will show up which is an array of posts */
+        this.posts = data.posts;
+        console.log(this.posts);
+      }
+    })
   }
 }
