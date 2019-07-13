@@ -1,6 +1,6 @@
 <template>
   <div class="post-preview" repeat.for="post of posts">
-    <a href="post.html">
+    <a route-href="route: post-view; params.bind: {slug: post.slug}">
       <h2 class="post-title">
         ${post.title}
       </h2>
