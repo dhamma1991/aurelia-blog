@@ -3,6 +3,7 @@ import { PLATFORM } from "aurelia-framework";
 import {inject} from 'aurelia-framework';
 import {PostService} from './common/services/post-service';
 
+@inject(PostService)
 export class App {
   message = 'Hello World!';
 
