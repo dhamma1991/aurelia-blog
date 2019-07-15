@@ -7,6 +7,10 @@
     ${error}
   </div>
 
+  <div class="alert alert-dark">
+      ${tag}
+    </div>
+
   <div class="post-preview" repeat.for="post of posts">
     <!-- This link will go to the view component -->
     <a route-href="route: post-view; params.bind: {slug: post.slug}">
