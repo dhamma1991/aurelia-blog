@@ -1,7 +1,7 @@
 import {bindable} from 'aurelia-framework';
 
 export class BlogPost {
-  @bindable value;
+  @bindable post;
 
   valueChanged(newValue, oldValue) {
     //
