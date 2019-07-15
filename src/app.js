@@ -5,8 +5,6 @@ import {PostService} from './common/services/post-service';
 
 @inject(PostService)
 export class App {
-  message = 'Hello World!';
-
   configureRouter(config, router) {
     config.title = "Chris's Blog";
 
