@@ -1,7 +1,8 @@
-import bootstrap from 'bootstrap';
+import {PostService} from './common/services/post-service';
 import { PLATFORM } from "aurelia-framework";
 import {inject} from 'aurelia-framework';
-import {PostService} from './common/services/post-service';
+import bootstrap from 'bootstrap';
+import moment from 'moment';
 
 @inject(PostService)
 export class App {
