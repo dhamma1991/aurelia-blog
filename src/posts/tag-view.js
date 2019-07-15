@@ -3,7 +3,7 @@ import {PostService} from '../common/services/post-service';
 
 @inject(PostService)
 export class TagView {
-  constructor() {
+  constructor(PostService) {
     this.postService = PostService;
   }
 
