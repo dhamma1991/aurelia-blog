@@ -10,6 +10,15 @@ export class App {
     this.postService = PostService;
   }
 
+  /* Attached is often the preferred life cycle hook for backend calls */ 
+  attached() {
+    this.postService.allTags().then(data => {
+      this.tags = data.tags;
+    }).catch(error => {
+      this.error = error.message;
+    })
+  }
+
   configureRouter(config, router) {
     config.title = "Chris's Blog";
 
