@@ -5,6 +5,11 @@ import {PostService} from './common/services/post-service';
 
 @inject(PostService)
 export class App {
+
+  constructor(PostService) {
+    this.postService = PostService;
+  }
+
   configureRouter(config, router) {
     config.title = "Chris's Blog";
 
