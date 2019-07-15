@@ -1,5 +1,7 @@
 import bootstrap from 'bootstrap';
 import { PLATFORM } from "aurelia-framework";
+import {inject} from 'aurelia-framework';
+import {PostService} from './common/services/post-service';
 
 export class App {
   message = 'Hello World!';
