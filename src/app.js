@@ -8,6 +8,8 @@ export class App {
 
   constructor(PostService) {
     this.postService = PostService;
+    /* Get the current year to use (currently) in the footer of the app */
+    this.currentYear = moment().format('YYYY');
   }
 
   /* Attached is often the preferred life cycle hook for backend calls */ 
