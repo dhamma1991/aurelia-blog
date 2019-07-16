@@ -1,9 +1,11 @@
 import {inject} from 'aurelia-framework';
+import {router} from 'aurelia-router';
 import {AuthService} from '../common/services/auth-service';
 
-@inject(AuthService)
+@inject(AuthService, Router)
 export class Login {
   constructor(AuthService) {
+    this.router = Router;
     this.authService = AuthService;
   }
 
@@ -13,8 +15,10 @@ export class Login {
   }
   
   login() {
+    /* Successful case with data */
     this.authService.login(this.name).then(data => {
-      console.log(data.user);
+      this.router.navigateToRoute('home');
+    /* Unsuccessful case with data */
     }).catch(error => {
       this.error = error.message;
     })
