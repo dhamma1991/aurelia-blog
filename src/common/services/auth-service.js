@@ -1,5 +1,6 @@
 export class AuthService {
 
+	/* This is an overly simplistic way of construing a user authentication scheme, but it allows demonstration of concept for a frontend framework */
 	constructor() {
 		this.delay = 100;
 		this.currentUser = null;
