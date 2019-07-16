@@ -6,12 +6,17 @@ export class Login {
   constructor(AuthService) {
     this.authService = AuthService;
   }
+
+  activate() {
+    /* When the component is activated, initialise error in case there is no error */
+    this.error = null;
+  }
   
   login() {
     this.authService.login(this.name).then(data => {
       console.log(data.user);
     }).catch(error => {
-      console.log(error.message);
+      this.error = error.message;
     })
   }
 }
