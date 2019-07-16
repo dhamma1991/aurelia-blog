@@ -21,6 +21,12 @@ export class App {
   /* Attached is often the preferred life cycle hook for backend calls */ 
   attached() {
     this.currentUser = this.authService.currentUser;
+    /* This subscribe is talking to the publish found in login.js 
+      This is needed because the frontend does not automatically know when the user has changed
+      You have to explicitly tell it using publish and subscribe */
+    this.ea.subscribe('user', user => {
+      this.currentUser = this.authService.currentUser;
+    })
 
     this.postService.allTags().then(data => {
       this.tags = data.tags;
