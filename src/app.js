@@ -18,7 +18,7 @@ export class App {
   /* Attached is often the preferred life cycle hook for backend calls */ 
   attached() {
     this.currentUser = this.authService.currentUser;
-    
+
     this.postService.allTags().then(data => {
       this.tags = data.tags;
     }).catch(error => {
@@ -32,6 +32,7 @@ export class App {
     /* Pass an array of routes to config.map */
     config.map([
       { route: '', name: 'home', moduleId: PLATFORM.moduleName('posts/index'), title: 'All Posts'},
+      { route: 'login', name: 'login', moduleId: PLATFORM.moduleName('auth/login'), title: 'Login'},
       /* Go to the route post, pass a variable within the url string called slug */
       { route: 'post/:slug', name: 'post-view', moduleId: PLATFORM.moduleName('posts/view'), title: 'View Post'},
       { route: 'tag/:tag', name: 'tag-view', moduleId: PLATFORM.moduleName('posts/tag-view'), title: 'View Post by Tag'},
