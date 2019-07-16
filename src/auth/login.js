@@ -4,9 +4,9 @@ import {AuthService} from '../common/services/auth-service';
 
 @inject(AuthService, Router)
 export class Login {
-  constructor(AuthService) {
+  constructor(AuthService, Router) {
     this.router = Router;
-    
+
     this.authService = AuthService;
   }
 
