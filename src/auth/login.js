@@ -7,9 +7,7 @@ import {AuthService} from '../common/services/auth-service';
 export class Login {
   constructor(AuthService, Router, EventAggregator) {
     this.router = Router;
-
     this.authService = AuthService;
-
     this.ea = EventAggregator;
   }
 
@@ -23,6 +21,8 @@ export class Login {
 
     /* Successful case with data */
     this.authService.login(this.name).then(data => {
+      /* Now the user data has been published, anywhere you want to get the data can be reached with subscribe */
+      this.ea.publish('user', data.name);
       this.router.navigateToRoute('home');
     /* Unsuccessful case with data */
     }).catch(error => {
