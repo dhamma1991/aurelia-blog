@@ -1,10 +1,11 @@
 import {PostService} from './common/services/post-service';
+import {AuthService} from './common/services/auth-service';
 import { PLATFORM } from "aurelia-framework";
 import {inject} from 'aurelia-framework';
 import bootstrap from 'bootstrap';
 import moment from 'moment';
 
-@inject(PostService)
+@inject(PostService, AuthService)
 export class App {
 
   constructor(PostService) {
