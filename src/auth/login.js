@@ -8,5 +8,9 @@ export class Login {
   }
   
   login() {
-
+    this.authService.login(this.name).then(data => {
+      console.log(data.user);
+    }).catch(error => {
+      console.log(error.message);
+    })
   }
