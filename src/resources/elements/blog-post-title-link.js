@@ -1,7 +1,7 @@
 import {bindable} from 'aurelia-framework';
 
 export class BlogPostTitleLink {
-  @bindable value;
+  @bindable post;
 
   valueChanged(newValue, oldValue) {
     //
