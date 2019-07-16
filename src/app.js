@@ -1,16 +1,19 @@
 import { PLATFORM } from "aurelia-framework";
 import {inject} from 'aurelia-framework';
+import {EventAggregator} from 'aurelia-event-aggregator';
 import {PostService} from './common/services/post-service';
 import {AuthService} from './common/services/auth-service';
 import bootstrap from 'bootstrap';
 import moment from 'moment';
 
-@inject(PostService, AuthService)
+@inject(PostService, AuthService, EventAggregator)
 export class App {
 
-  constructor(PostService) {
+  constructor(PostService, AuthService, EventAggregator) {
     this.postService = PostService;
     this.authService = AuthService;
+    this.ea = EventAggregator;
+
     /* Get the current year to use (currently) in the footer of the app */
     this.currentYear = moment().format('YYYY');
   }
