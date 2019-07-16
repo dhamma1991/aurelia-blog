@@ -18,7 +18,7 @@
     </p>
 
     <p>
-      <a href="" repeat.for="tag of post.tags">
+      <a route-href="route: tag-view; params.bind: {tag}" repeat.for="tag of post.tags">
         <span class="badge badge-pill badge-info">
           ${tag}
         </span>
