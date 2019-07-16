@@ -17,6 +17,8 @@ export class App {
 
   /* Attached is often the preferred life cycle hook for backend calls */ 
   attached() {
+    this.currentUser = this.authService.currentUser;
+    
     this.postService.allTags().then(data => {
       this.tags = data.tags;
     }).catch(error => {
