@@ -1,7 +1,7 @@
 <template>
   <!-- Import the value converter -->
   <require from="resources/value-converters/date-format"></require>
-  <require from="../resources/elements/blog-post"></require>
+  <require from="../resources/elements/blog-post-title-link"></require>
 
   <!-- if.bind ensures that this div will only show if error exists -->
   <div class="alert alert-danger" if.bind="error">
@@ -9,7 +9,7 @@
   </div>
 
   <div repeat.for="post of posts">
-    <blog-post post.bind="post"></blog-post>
+    <blog-post-title-link post.bind="post"></blog-post-title-link>
   </div>
 
   <hr>
