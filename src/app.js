@@ -10,6 +10,7 @@ export class App {
 
   constructor(PostService) {
     this.postService = PostService;
+    this.authService = AuthService;
     /* Get the current year to use (currently) in the footer of the app */
     this.currentYear = moment().format('YYYY');
   }
