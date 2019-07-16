@@ -6,6 +6,7 @@ import {AuthService} from '../common/services/auth-service';
 export class Login {
   constructor(AuthService) {
     this.router = Router;
+    
     this.authService = AuthService;
   }
 
@@ -15,6 +16,8 @@ export class Login {
   }
   
   login() {
+    this.error = null;
+
     /* Successful case with data */
     this.authService.login(this.name).then(data => {
       this.router.navigateToRoute('home');
