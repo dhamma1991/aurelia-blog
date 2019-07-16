@@ -1,0 +1,28 @@
+<template>
+  <!-- Import the value converter -->
+  <require from="../value-converters/date-format"></require>
+
+  <div class="post-preview">
+    <a route-href="route: post-view; params.bind: {slug: post.slug}">
+      <h2 class="post-title">
+        ${post.title}
+      </h2>
+    </a>
+
+    <p class="post-meta">
+      Posted by <a href="#">${post.author}</a> on ${post.createdAt | dateFormat}
+    </p>
+
+    <p>
+      ${post.body}
+    </p>
+
+    <p>
+      <a href="" repeat.for="tag of post.tags">
+        <span class="badge badge-pill badge-info">
+          ${tag}
+        </span>
+      </a>
+    </p>
+  </div>
+</template>
