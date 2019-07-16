@@ -1,35 +1,15 @@
 <template>
   <!-- Import the value converter -->
   <require from="resources/value-converters/date-format"></require>
+  <require from="../resources/elements/blog-post"></require>
 
   <!-- if.bind ensures that this div will only show if error exists -->
   <div class="alert alert-danger" if.bind="error">
     ${error}
   </div>
 
-  <div class="post-preview" repeat.for="post of posts">
-    <!-- This link will go to the view component -->
-    <a route-href="route: post-view; params.bind: {slug: post.slug}">
-      <h2 class="post-title">
-        ${post.title}
-      </h2>
-    </a>
-
-    <p class="post-meta">
-      Posted by <a href="#">${post.author}</a> on ${post.createdAt | dateFormat}
-    </p>
-
-    <p class="post-subtitle">
-      ${post.body}
-    </p>
-
-    <p>
-      <a href="" repeat.for="tag of post.tags">
-        <span class="badge badge-pill badge-info">
-          ${tag}
-        </span>
-      </a>
-    </p>
+  <div repeat.for="post of posts">
+    <blog-post post.bind="post"></blog-post>
   </div>
 
   <hr>
