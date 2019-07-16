@@ -5,7 +5,7 @@ import {AuthService} from '../common/services/auth-service';
 
 @inject(AuthService, Router, EventAggregator)
 export class Login {
-  constructor(AuthService, Router) {
+  constructor(AuthService, Router, EventAggregator) {
     this.router = Router;
 
     this.authService = AuthService;
