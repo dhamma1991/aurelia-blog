@@ -23,8 +23,9 @@ export class App {
     this.currentUser = this.authService.currentUser;
     /* This subscribe is talking to the publish found in login.js 
       This is needed because the frontend does not automatically know when the user has changed
-      You have to explicitly tell it using publish and subscribe */
-    this.ea.subscribe('user', user => {
+      You have to explicitly tell it using publish and subscribe 
+      Storing the ea in a property called 'subscription' in this case allows the property to be used within the detached life cycle hook */
+    this.subscription = this.ea.subscribe('user', user => {
       this.currentUser = this.authService.currentUser;
     })
 
@@ -46,5 +47,11 @@ export class App {
       { route: 'post/:slug', name: 'post-view', moduleId: PLATFORM.moduleName('posts/view'), title: 'View Post'},
       { route: 'tag/:tag', name: 'tag-view', moduleId: PLATFORM.moduleName('posts/tag-view'), title: 'View Post by Tag'},
     ]);
+  }
+
+  detached() {
+    /* Dispose of the subscription created in the attached() life cycle hook
+      This is the proper way to clean up after a subscription */
+    this.subscription.dispose();
   }
 }
