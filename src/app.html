@@ -29,7 +29,8 @@
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="#" if.bind="currentUser">Log Out</a>
+                <!-- click.delegate is used here instead of setting the route-href -->
+                <a class="nav-link" href="#" if.bind="currentUser" click.delegate="logout()">Log Out</a>
               </li>
             </ul>
           </div>
