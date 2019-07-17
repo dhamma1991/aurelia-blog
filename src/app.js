@@ -58,6 +58,8 @@ export class App {
   logout() {
     this.authService.logout().then(data => {
       console.log(data.success);
+      /* Publishing the user data here allows the subscribe in the attached() method above to catch the change */
+      this.ea.publish('user', null);
     }).catch(error => {
       this.error = error.message;
     })
