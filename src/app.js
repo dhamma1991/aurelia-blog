@@ -54,4 +54,12 @@ export class App {
       This is the proper way to clean up after a subscription */
     this.subscription.dispose();
   }
+
+  logout() {
+    this.authService.logout().then(data => {
+      console.log(data.success);
+    }).catch(error => {
+      this.error = error.message;
+    })
+  }
 }
