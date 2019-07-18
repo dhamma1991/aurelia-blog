@@ -1,7 +1,7 @@
 <template>
-  <require from="../resources/elements/blog-post-title-link"></require>
+<!--   <require from="../resources/elements/blog-post-title-link"></require>
 
-  <!-- if.bind ensures that this div will only show if error exists -->
+  <!~~ if.bind ensures that this div will only show if error exists ~~>
   <div class="alert alert-danger" if.bind="error">
     ${error}
   </div>
@@ -17,5 +17,7 @@
     <blog-post-title-link post.bind="post"></blog-post-title-link>
   </div>
 
-  <hr>
+  <hr> -->
+
+  <compose view="./post-list.html"></compose>
 </template>
