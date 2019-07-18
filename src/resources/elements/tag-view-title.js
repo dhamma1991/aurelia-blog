@@ -1,7 +1,7 @@
 import {bindable} from 'aurelia-framework';
 
 export class TagViewTitle {
-  @bindable value;
+  @bindable tag;
 
   valueChanged(newValue, oldValue) {
     //
