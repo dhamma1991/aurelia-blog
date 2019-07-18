@@ -1,24 +1,4 @@
 <template>
-<!--   <require from="../resources/elements/blog-post-title-link"></require>
-
-  <!~~ if.bind ensures that this div will only show if error exists ~~>
-  <div class="alert alert-danger" if.bind="error">
-    ${error}
-  </div>
-
-  <div class="alert alert-dark">
-    Viewing posts by tag: 
-    <span class="badge badge-pill badge-info">
-      ${tag}
-    </span>
-  </div>
-
-  <div repeat.for="post of posts">
-    <blog-post-title-link post.bind="post"></blog-post-title-link>
-  </div>
-
-  <hr> -->
-
   <!-- This binds the view-model associated with tag-view to the post-list view -->
   <compose view="./post-list.html"></compose>
 </template>
