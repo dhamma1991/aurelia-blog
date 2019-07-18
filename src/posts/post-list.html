@@ -10,11 +10,8 @@
 
     <!-- title will only exist in the case of the tag-view. There is no 'title' element on the index page -->
     <div class="alert alert-dark" if.bind="title">
+        <!-- This custom element renders the text indicating to the user which tags are currently being used as filters -->
         <tag-view-title tag.bind="tag"></tag-view-title>
-        <!-- Viewing posts by tag: 
-        <span class="badge badge-pill badge-info">
-        ${tag}
-        </span> -->
     </div>
 
     <div repeat.for="post of posts">
