@@ -1,3 +1,4 @@
+<!-- The home page -->
 <template>
   <require from="../resources/elements/blog-post-title-link"></require>
 
@@ -6,6 +7,7 @@
     ${error}
   </div>
 
+  <!-- Each post on the home page is rendered using the custom element blog-post-title-link -->
   <div repeat.for="post of posts">
     <blog-post-title-link post.bind="post"></blog-post-title-link>
   </div>

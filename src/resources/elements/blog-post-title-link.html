@@ -1,8 +1,10 @@
+<!-- Each post on the index page is represented by this custom element -->
 <template>
   <!-- Import the value converter -->
   <require from="../value-converters/date-format"></require>
 
   <div class="post-preview">
+    <!-- This link goes to view.html -->
     <a route-href="route: post-view; params.bind: {slug: post.slug}">
       <h2 class="post-title">
         ${post.title}
