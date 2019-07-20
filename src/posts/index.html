@@ -1,19 +1,7 @@
 <!-- The home page -->
 <template>
-  <require from="../resources/elements/blog-post-title-link"></require>
+  <compose view="./post-list.html"></compose>
 
-  <!-- if.bind ensures that this div will only show if error exists -->
-  <div class="alert alert-danger" if.bind="error">
-    ${error}
-  </div>
-
-  <!-- Each post on the home page is rendered using the custom element blog-post-title-link -->
-  <div repeat.for="post of posts">
-    <blog-post-title-link post.bind="post"></blog-post-title-link>
-  </div>
-
-  <hr>
-  
   <!-- Pager -->
   <div class="clearfix">
     <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
