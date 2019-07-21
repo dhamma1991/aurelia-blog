@@ -1,5 +1,6 @@
 <!-- This element is used to reduce the redundancy for index.html and tag-view.html -->
-<template>
+<!-- Since this element doesn't have a view-model, you have to explicitly tell it what is bindable -->
+<template bindable="error, title, posts">
     <require from="./blog-post-title-link"></require>
     <require from="./tag-view-title"></require>
 
