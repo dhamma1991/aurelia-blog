@@ -3,9 +3,11 @@
   <require from="../resources/elements/post-list.html"></require>
 
   <post-list error.bind="error" posts.bind="posts" tag.bind="tag">
-    Viewing posts by tag: 
-    <span class="badge badge-pill badge-info">
-      ${tag}
-    </span>
+    <div class="alert alert-dark">
+      Viewing posts by tag: 
+      <span class="badge badge-pill badge-info">
+        ${tag}
+      </span>
+    </div>
   </post-list>
 </template>
