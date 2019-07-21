@@ -3,6 +3,8 @@
   <!-- Since there's no view-model for post-list, you have to require the .html file directly -->
   <require from="../resources/elements/post-list.html"></require>
 
+  <!-- Note it is also possible to use a compose tag here in order to render the post-list 
+    However, for most use cases it is better to use a custom element, it is less verbose and follows encapsulation principles better -->
   <post-list error.bind="error" posts.bind="posts"></post-list>
 
   <!-- Pager -->
