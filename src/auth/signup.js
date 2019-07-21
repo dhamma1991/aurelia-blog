@@ -1,10 +1,14 @@
 import {inject} from 'aurelia-framework';
+import {Router} from 'aurelia-router';
+import {EventAggregator} from 'aurelia-event-aggregator';
 import {AuthService} from '../common/services/auth-service';
 
-@inject(AuthService)
+@inject(AuthService, Router, EventAggregator)
 export class Signup {
-  constructor(AuthService) {
+  constructor(AuthService, Router, EventAggregator) {
     this.authService = AuthService;
+    this.router = Router;
+    this.ea = EventAggregator;
   }
 
   signup() {
