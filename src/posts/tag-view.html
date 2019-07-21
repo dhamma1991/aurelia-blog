@@ -1,4 +1,6 @@
 <template>
-  <!-- This binds the view-model associated with tag-view to the post-list view -->
-  <compose view="./post-list.html"></compose>
+  <!-- Since there's no view-model for post-list, you have to require the .html file directly -->
+  <require from="../resources/elements/post-list.html"></require>
+
+  <post-list error.bind="error" title.bind="title" posts.bind="posts"></post-list>
 </template>
