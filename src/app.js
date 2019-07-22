@@ -16,7 +16,7 @@ export class App {
 
     /* Get the current year to use (currently) in the footer of the app */
     this.currentYear = moment().format('YYYY');
-  }
+  };
 
   /* Attached is often the preferred life cycle hook for backend calls */ 
   attached() {
@@ -27,8 +27,16 @@ export class App {
       Storing the ea in a property called 'subscription' in this case allows the property to be used within the detached life cycle hook */
     this.subscription = this.ea.subscribe('user', user => {
       this.currentUser = this.authService.currentUser;
-    })
+    });
 
+    this.updateTags();
+    /* Using ea, any time that post-updated gets published, updateTags() will be called */
+    this.ea.subscribe('post-updated', updatedAt => {
+      this.updateTags();
+    });
+  };
+
+  updateTags() {
     this.postService.allTags().then(data => {
       this.tags = data.tags;
     }).catch(error => {
