@@ -10,6 +10,13 @@ export class NewPost {
   }
 
   attached() {
+    /* This is used primarily to tell aurelia that it should expect tags to be an array
+      Without this, if you try checking a checkbox on the new-post form, all the options will become checked */
+    this.post = {
+      title: '',
+      body: '',
+      tags: []
+    };
     /* Grab all the tags from the backend so that you can populate the input for tags on the form on new-post.html */
     this.postService.allTags().then(data => {
       this.allTags = data.tags;
