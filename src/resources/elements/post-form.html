@@ -5,7 +5,8 @@
     <div class="form-group">
       <label for="title">Post Title</label>
 
-      <input type="text" class="form-control" placeholder="Your Post Title" value.bind="post.title">
+      <!-- The & validate bit tells the validation to validate this input field -->
+      <input type="text" class="form-control" placeholder="Your Post Title" value.bind="post.title & validate">
     </div>
 
     <div class="form-group">
