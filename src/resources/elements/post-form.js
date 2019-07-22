@@ -35,7 +35,14 @@ export class PostForm {
 
   }
 
-  valueChanged(newValue, oldValue) {
-    //
+  postChanged(newValue, oldValue) {
+    /* If a post exists */
+    if (this.post) {
+      /* Set the validation rules */
+      ValidationRules
+        .ensure('title')
+        .required()
+        .on(this.post);
+    }
   }
 }
