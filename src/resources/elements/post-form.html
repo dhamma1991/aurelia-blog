@@ -1,4 +1,6 @@
 <template>
+  <h1>${title}</h1>
+
   <form submit.delegate="newPost()">
     <div class="form-group">
       <label for="title">Post Title</label>
@@ -29,6 +31,6 @@
 
     <hr>
 
-    <button type="submit" class="btn btn-primary">Create Post</button>
+    <button type="submit" class="btn btn-primary">${title}</button>
   </form>
 </template>
