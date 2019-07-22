@@ -1,10 +1,11 @@
 import {bindable} from 'aurelia-framework';
 
 export class PostForm {
-  @bindable value;
+  @bindable post;
+  @bindable title;
 
   submit() {
-    
+
   }
 
   valueChanged(newValue, oldValue) {
