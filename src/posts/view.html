@@ -9,4 +9,6 @@
 
   <!-- There is a property of the blog-post view-model called post -->
   <blog-post post.bind="post"></blog-post>
+
+  <a route-href="route: edit-post; params.bind: {slug: post.slug}" class="btn btn-primary">Edit Post</a>
 </template>
