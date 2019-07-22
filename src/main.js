@@ -9,7 +9,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
-    .feature(PLATFORM.moduleName('resources/index'));
+    .feature(PLATFORM.moduleName('resources/index'))
+    /* Register the aurelia-validation plugin */
+    .plugin('aurelia-validation');
 
   aurelia.use.developmentLogging(environment.debug ? 'debug' : 'warn');
 
