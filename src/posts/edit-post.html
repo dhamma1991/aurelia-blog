@@ -1,3 +1,4 @@
 <template>
-  <h1>${message}</h1>
+    <require from="../resources/elements/post-form"></require>
+    <post-form post.bind="post" title.bind="title" submit.delegate="editPost()"></post-form>
 </template>
