@@ -9,6 +9,15 @@ export class NewPost {
     this.router = Router;
   }
 
+  attached() {
+    /* Grab all the tags from the backend so that you can populate the input for tags on the form on new-post.html */
+    this.postService.allTags().then(data => {
+      this.allTags = data.tags;
+    }).catch(error => {
+      console.log(error);
+    })
+  }
+
   newPost() {
     this.postService.create(this.post).then(data => {
       /* So when the post is added, the app goes to that post's view
