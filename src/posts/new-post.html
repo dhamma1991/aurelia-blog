@@ -1,36 +1,3 @@
 <template>
   <h1>Create New Post</h1>
-
-  <form submit.delegate="newPost()">
-    <div class="form-group">
-      <label for="title">Post Title</label>
-
-      <input type="text" class="form-control" placeholder="Your Post Title" value.bind="post.title">
-    </div>
-
-    <div class="form-group">
-      <label for="body">Post Body</label>
-
-      <textarea class="form-control" rows="10" value.bind="post.body"></textarea>
-    </div>
-
-    <div class="form-check" repeat.for="tag of allTags">
-      <!-- Two binds are needed here
-        One is to tell the input what value to represent
-        The other tells the input how to associate the value with the post-->
-      <input class="form-check-input" type="checkbox" value.bind="tag" checked.bind="post.tags">
-
-      <label class="form-check-label">${tag}</label>
-    </div>
-
-    <div class="form-group">
-      <input type="text" value.bind="newTag">
-
-      <a href="" click.delegate="addTag()">Add Tag</a>
-    </div>
-
-    <hr>
-
-    <button type="submit" class="btn btn-primary">Create Post</button>
-  </form>
 </template>
