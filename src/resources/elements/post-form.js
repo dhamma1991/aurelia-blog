@@ -1,14 +1,16 @@
 import {bindable} from 'aurelia-framework';
 import {inject} from 'aurelia-framework';
+import {ValidationRules, ValidationControllerFactory} from 'aurelia-validation';
 import {PostService} from '../../common/services/post-service';
 
-@inject(PostService)
+@inject(PostService, ValidationControllerFactory)
 export class PostForm {
   @bindable post;
   @bindable title;
 
-  constructor(PostService) {
+  constructor(PostService, ValidationControllerFactory) {
     this.postService = PostService;
+    this.controller = ValidationControllerFactory.createForCurrentScope();
   }
 
   attached() {
