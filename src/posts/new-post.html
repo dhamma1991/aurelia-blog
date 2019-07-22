@@ -1,3 +1,19 @@
 <template>
-  <h1>${message}</h1>
+  <h1>Create New Post</h1>
+
+  <form>
+    <div class="form-group">
+      <label for="title">Title</label>
+
+      <input type="text" class="form-control" placeholder="Your Post Title">
+    </div>
+
+    <div class="form-group">
+      <label for="body">Body</label>
+
+      <textarea class="form-control" rows="10"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Post</button>
+  </form>
 </template>
