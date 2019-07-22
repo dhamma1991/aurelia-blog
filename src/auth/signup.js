@@ -19,7 +19,7 @@ export class Signup {
     this.authService.signup(this.name).then(data => {
       /* What happens here is very similiar to the login method found in login.js */
       this.ea.publish('user', data.name);
-      this.router.navigateToRoute('login');
+      this.router.navigateToRoute('home');
     }).catch(error => {
       this.error = error.message;
     });
