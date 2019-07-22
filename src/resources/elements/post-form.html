@@ -37,6 +37,7 @@
       <li repeat.for="error of controller.errors">${error}</li>
     </ul>
 
-    <button type="submit" class="btn btn-primary">${title}</button>
+    <!-- Disable the button if there are controller errors -->
+    <button type="submit" class="btn btn-primary" disabled.bind="controller.errors.length > 0">${title}</button>
   </form>
 </template>
