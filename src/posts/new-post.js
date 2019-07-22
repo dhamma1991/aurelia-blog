@@ -7,7 +7,7 @@ export class NewPost {
     this.postService = PostService;
   }
 
-  createPost() {
+  newPost() {
     this.postService.create(this.post).then(data => {
       console.log(data);
     }).catch(error => {
