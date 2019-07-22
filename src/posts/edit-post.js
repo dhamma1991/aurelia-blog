@@ -24,8 +24,8 @@ export class EditPost {
     this.title = "Edit Post";
   };
 
-  newPost() {
-    this.postService.create(this.post).then(data => {
+  editPost() {
+    this.postService.update(this.post).then(data => {
       /* Publish to something called post-updated, publish the date */
       this.ea.publish('post-updated', Date());
       /* So when the post is added, the app goes to that post's view
