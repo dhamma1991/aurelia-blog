@@ -34,4 +34,13 @@ export class NewPost {
       console.log(error);
     })
   }
+
+  addTag() {
+    /* Add the tag to the allTags array */
+    this.allTags.push(this.newTag);
+    /* Ensure the newly added tag is checked */;
+    this.post.tags.push(this.newTag);
+    /* Clear the text box */
+    this.newTag = '';
+  }
 }
