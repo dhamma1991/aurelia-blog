@@ -11,14 +11,13 @@ export class EditPost {
     this.router = Router;
   };
 
-  attached() {
-    /* This is used primarily to tell aurelia that it should expect tags to be an array
-      Without this, if you try checking a checkbox on the new-post form, all the options will become checked */
-    this.post = {
-      title: '',
-      body: '',
-      tags: []
-    };
+  activate(params) {
+    /* Go grab the post from the post slug that was passed through */
+    this.postService.find(params.slug).then(data => {
+      this.post = data.post;
+    }).catch(error => {
+      console.log(error);
+    })
 
     /* The post-form custom element requires a title, so that is passed through from here */
     this.title = "Edit Post";
