@@ -31,7 +31,7 @@ export class App {
 
     this.updateTags();
     /* Using ea, any time that post-updated gets published, updateTags() will be called */
-    this.ea.subscribe('post-updated', updatedAt => {
+    this.postSubscription = this.ea.subscribe('post-updated', updatedAt => {
       this.updateTags();
     });
   };
@@ -63,6 +63,7 @@ export class App {
     /* Dispose of the subscription created in the attached() life cycle hook
       This is the proper way to clean up after a subscription */
     this.subscription.dispose();
+    this.postSubscription.dispose();
   }
 
   logout() {
