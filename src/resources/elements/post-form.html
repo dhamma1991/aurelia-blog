@@ -32,6 +32,11 @@
 
     <hr>
 
+    <!-- This ul will only appear if the controller has errors -->
+    <ul if.bind="controller.errors.length > 0">
+      <li repeat.for="error of controller.errors">${error}</li>
+    </ul>
+
     <button type="submit" class="btn btn-primary">${title}</button>
   </form>
 </template>
