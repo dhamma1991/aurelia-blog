@@ -43,6 +43,8 @@ export class PostForm {
         .ensure('title')
         .required()
         .on(this.post);
+
+      this.controller.validate();
     }
   }
 }
