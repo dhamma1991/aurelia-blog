@@ -55,6 +55,7 @@ export class App {
       { route: 'new-post', name: 'new-post', moduleId: PLATFORM.moduleName('posts/new-post'), title: 'New Post'},
       /* Go to the route post, pass a variable within the url string called slug */
       { route: 'post/:slug', name: 'post-view', moduleId: PLATFORM.moduleName('posts/view'), title: 'View Post'},
+      { route: 'post/:slug/edit', name: 'edit-post', moduleId: PLATFORM.moduleName('posts/edit-post'), title: 'Edit Post'},
       { route: 'tag/:tag', name: 'tag-view', moduleId: PLATFORM.moduleName('posts/tag-view'), title: 'View Post by Tag'},
     ]);
   }
