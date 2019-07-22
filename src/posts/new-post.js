@@ -19,6 +19,10 @@ export class NewPost {
       body: '',
       tags: []
     };
+
+    /* The post-form custom element requires a title, so that is passed through from here */
+    this.title = "Create Post";
+
     /* Grab all the tags from the backend so that you can populate the input for tags on the form on new-post.html */
     this.postService.allTags().then(data => {
       this.allTags = data.tags;
