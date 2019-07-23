@@ -42,7 +42,7 @@ export class PostForm {
       validationMessages['required'] = `You must enter a \${$displayName}.`
       /* Set the validation rules */
       ValidationRules
-        .ensure('title').displayName("Post Title").required()
+        .ensure('title').displayName("Post Title").required().minLength(2)
         .ensure('body').displayName("Post Body").required()
         .on(this.post);
 
