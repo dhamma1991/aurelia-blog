@@ -1,6 +1,6 @@
 import {bindable} from 'aurelia-framework';
 import {inject} from 'aurelia-framework';
-import {ValidationRules, ValidationControllerFactory} from 'aurelia-validation';
+import {ValidationRules, ValidationControllerFactory, validationMessages} from 'aurelia-validation';
 import {PostService} from '../../common/services/post-service';
 
 @inject(PostService, ValidationControllerFactory)
@@ -38,10 +38,12 @@ export class PostForm {
   postChanged(newValue, oldValue) {
     /* If a post exists */
     if (this.post) {
+      /* Escaping is used on the variable because its value does not exist at the time it is set */
+      validationMessages['required'] = `You must enter a \${$displayName}.`
       /* Set the validation rules */
       ValidationRules
-        .ensure('title').required().withMessage("You must enter a post title")
-        .ensure('body').required().withMessage("You must enter a post body")
+        .ensure('title').displayName("Post Title").required()
+        .ensure('body').displayName("Post Body").required()
         .on(this.post);
 
       this.controller.validate();
