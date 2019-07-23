@@ -40,8 +40,8 @@ export class PostForm {
     if (this.post) {
       /* Set the validation rules */
       ValidationRules
-        .ensure('title')
-        .required()
+        .ensure('title').required()
+        .ensure('body').required()
         .on(this.post);
 
       this.controller.validate();

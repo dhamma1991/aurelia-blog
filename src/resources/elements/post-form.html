@@ -12,7 +12,7 @@
     <div class="form-group">
       <label for="body">Post Body</label>
 
-      <textarea class="form-control" rows="10" value.bind="post.body"></textarea>
+      <textarea class="form-control" rows="10" value.bind="post.body & validateOnChange"></textarea>
     </div>
 
     <div class="form-check" repeat.for="tag of allTags">
