@@ -3,6 +3,7 @@ import {inject} from 'aurelia-framework';
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {PostService} from './common/services/post-service';
 import {AuthService} from './common/services/auth-service';
+import {AuthorizeStep} from './pipeline-steps/authorize-step';
 import bootstrap from 'bootstrap';
 import moment from 'moment';
 
