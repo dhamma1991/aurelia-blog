@@ -46,7 +46,9 @@ export class App {
   }
 
   configureRouter(config, router) {
+    this.router = router;
     config.title = "Chris's Blog";
+    // config.addAuthorizeStep(AuthorizeStep);
 
     /* Pass an array of routes to config.map */
     config.map([
