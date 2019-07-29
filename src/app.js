@@ -22,7 +22,6 @@ export class App {
 
   /* Attached is often the preferred life cycle hook for backend calls */ 
   attached() {
-    toastr.success('We are using toastr!')
     this.currentUser = this.authService.currentUser;
     /* This subscribe is talking to the publish found in login.js 
       This is needed because the frontend does not automatically know when the user has changed
@@ -37,6 +36,12 @@ export class App {
     this.postSubscription = this.ea.subscribe('post-updated', updatedAt => {
       this.updateTags();
     });
+
+    this.toastSubscription = this.ea.subscribe('toast', toast => {
+      toastr.success(toast);
+    });
+
+    this.ea.publish('toast', 'Testing event aggregator');
   };
 
   updateTags() {
