@@ -2,11 +2,6 @@
 <template>
   <require from="../resources/elements/blog-post"></require>
 
-  <!-- if.bind ensures that this div will only show if error exists -->
-  <div class="alert alert-danger" if.bind="error">
-    ${error}
-  </div>
-
   <!-- There is a property of the blog-post view-model called post -->
   <blog-post post.bind="post"></blog-post>
 
