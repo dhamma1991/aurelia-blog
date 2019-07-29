@@ -40,18 +40,16 @@ export class App {
     this.toastSubscription = this.ea.subscribe('toast', toast => {
       toastr[toast.type](toast.message);
     });
-
-    this.ea.publish('toast', {
-      type: 'error',
-      message: 'This was unsuccessful'
-    });
   };
 
   updateTags() {
     this.postService.allTags().then(data => {
       this.tags = data.tags;
     }).catch(error => {
-      this.error = error.message;
+      this.ea.publish('toast', {
+        type: 'error',
+        message: error.message
+      });
     })
   }
 
@@ -84,10 +82,17 @@ export class App {
     this.authService.logout().then(data => {
       /* Publishing the user data here allows the subscribe in the attached() method above to catch the change */
       this.ea.publish('user', null);
+      this.ea.publish('toast', {
+        type: 'success',
+        message: 'You have successfully logged out'
+      });
       /* Upon successful logout, navigate the user to the home page */
       this.router.navigateToRoute('home');
     }).catch(error => {
-      this.error = error.message;
+      this.ea.publish('toast', {
+        type: 'error',
+        message: error.message
+      });
     })
   }
 }
