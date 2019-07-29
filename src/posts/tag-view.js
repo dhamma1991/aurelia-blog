@@ -1,10 +1,12 @@
 import {inject} from 'aurelia-framework';
 import {PostService} from '../common/services/post-service';
+import {EventAggregator} from 'aurelia-event-aggregator';
 
-@inject(PostService)
+@inject(PostService, EventAggregator)
 export class TagView {
   constructor(PostService) {
     this.postService = PostService;
+    this.ea = EventAggregator;
   }
 
   activate(params) {
@@ -13,7 +15,10 @@ export class TagView {
     this.postService.postsByTag(this.tag).then(data => {
       this.posts = data.posts;
     }).catch(error => {
-      this.error = error.message;
+      this.ea.publish('toast', {
+        type: 'error',
+        message: error.message
+      });
     })
   }
 }

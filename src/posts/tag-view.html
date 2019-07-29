@@ -2,7 +2,7 @@
   <!-- Since there's no view-model for post-list, you have to require the .html file directly -->
   <require from="../resources/elements/post-list.html"></require>
 
-  <post-list error.bind="error" posts.bind="posts" tag.bind="tag">
+  <post-list posts.bind="posts" tag.bind="tag">
     <div class="alert alert-dark">
       Viewing posts by tag: 
       <span class="badge badge-pill badge-info">
