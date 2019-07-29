@@ -1,12 +1,7 @@
 <!-- This element is used to reduce the redundancy for index.html and tag-view.html -->
 <!-- Since this element doesn't have a view-model, you have to explicitly tell it what is bindable -->
-<template bindable="error, title, posts, tag">
+<template bindable="title, posts, tag">
     <require from="./blog-post-title-link"></require>
-
-    <!-- if.bind ensures that this div will only show if error exists -->
-    <div class="alert alert-danger" if.bind="error">
-        ${error}
-    </div>
 
     <!-- Everything that sits within the <post-list> element wherever it is used (at the moment in index.html and tag-view.html) gets displayed here -->
     <slot></slot>
