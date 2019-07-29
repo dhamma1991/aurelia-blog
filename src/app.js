@@ -6,6 +6,7 @@ import {AuthService} from './common/services/auth-service';
 import {AuthorizeStep} from './pipeline-steps/authorize-step';
 import bootstrap from 'bootstrap';
 import moment from 'moment';
+import * as toastr from 'toastr';
 
 @inject(PostService, AuthService, EventAggregator)
 export class App {
@@ -21,6 +22,7 @@ export class App {
 
   /* Attached is often the preferred life cycle hook for backend calls */ 
   attached() {
+    toastr.success('We are using toastr!')
     this.currentUser = this.authService.currentUser;
     /* This subscribe is talking to the publish found in login.js 
       This is needed because the frontend does not automatically know when the user has changed
