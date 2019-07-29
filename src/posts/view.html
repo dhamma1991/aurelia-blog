@@ -5,5 +5,10 @@
   <!-- There is a property of the blog-post view-model called post -->
   <blog-post post.bind="post"></blog-post>
 
-  <a if.bind="authService.currentUser === post.author" route-href="route: edit-post; params.bind: {slug: post.slug}" class="btn btn-primary">Edit Post</a>
+  <div class="container blog-post-btns">
+    <div class="row justify-content-between">
+      <a route-href="home" class="btn btn-primary">View All Posts</a>
+      <a if.bind="authService.currentUser === post.author" route-href="route: edit-post; params.bind: {slug: post.slug}" class="btn btn-primary float-right">Edit Post</a>
+    </div>
+  </div>
 </template>
