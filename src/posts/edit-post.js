@@ -22,7 +22,12 @@ export class EditPost {
       }
       this.post = data.post;
     }).catch(error => {
-      console.log(error);
+      this.ea.publish('toast', {
+        type: 'error',
+        message: error.message
+      });
+      /* Don't just show the user an error message; if the post cannot be found, navigate the user to home */
+      this.router.navigateToRoute('home');
     })
 
     /* The post-form custom element requires a title, so that is passed through from here */
@@ -33,11 +38,18 @@ export class EditPost {
     this.postService.update(this.post).then(data => {
       /* Publish to something called post-updated, publish the date */
       this.ea.publish('post-updated', Date());
+      this.ea.publish('toast', {
+        type: 'success',
+        message: 'Post successfully edited'
+      });
       /* So when the post is added, the app goes to that post's view
         It does this by going to post-view and then passing through data.slug as the :slug required by that route */
       this.router.navigateToRoute('post-view', {slug: data.slug});
     }).catch(error => {
-      console.log(error);
+      this.ea.publish('toast', {
+        type: 'error',
+        message: error.message
+      });
     });
   };
 };
