@@ -72,9 +72,10 @@ export class App {
 
   logout() {
     this.authService.logout().then(data => {
-      console.log(data.success);
       /* Publishing the user data here allows the subscribe in the attached() method above to catch the change */
       this.ea.publish('user', null);
+      /* Upon successful logout, navigate the user to the home page */
+      this.router.navigateToRoute('home');
     }).catch(error => {
       this.error = error.message;
     })
