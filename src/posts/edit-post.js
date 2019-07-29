@@ -2,18 +2,24 @@ import {inject} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {PostService} from '../common/services/post-service';
+import {AuthService} from '../common/services/auth-service';
 
-@inject(PostService, Router, EventAggregator)
+@inject(AuthService, PostService, Router, EventAggregator)
 export class EditPost {
-  constructor(PostService, Router, EventAggregator) {
+  constructor(AuthService, PostService, Router, EventAggregator) {
     this.ea = EventAggregator;
     this.postService = PostService;
+    this.authService = AuthService;
     this.router = Router;
   };
 
   activate(params) {
     /* Go grab the post from the post slug that was passed through */
     this.postService.find(params.slug).then(data => {
+      // First check that the logged in user is the author of the post
+      if (data.post.author !== this.authService.currentUser) {
+        this.router.navigateToRoute('home');
+      }
       this.post = data.post;
     }).catch(error => {
       console.log(error);
