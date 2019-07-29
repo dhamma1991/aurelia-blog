@@ -10,15 +10,8 @@ export class Login {
     this.authService = AuthService;
     this.ea = EventAggregator;
   }
-
-  activate() {
-    /* When the component is activated, initialise error in case there is no error */
-    this.error = null;
-  }
   
   login() {
-    this.error = null;
-
     /* Successful case with data */
     this.authService.login(this.name).then(data => {
       /* Now the user data has been published, anywhere you want to get the data can be reached with subscribe */
@@ -26,7 +19,10 @@ export class Login {
       this.router.navigateToRoute('home');
     /* Unsuccessful case with data */
     }).catch(error => {
-      this.error = error.message;
+      this.ea.publish('toast', {
+        type: 'error',
+        message: error.message
+      });
     })
   }
 }
