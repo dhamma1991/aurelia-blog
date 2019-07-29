@@ -38,10 +38,13 @@ export class App {
     });
 
     this.toastSubscription = this.ea.subscribe('toast', toast => {
-      toastr.success(toast);
+      toastr[toast.type](toast.message);
     });
 
-    this.ea.publish('toast', 'Testing event aggregator');
+    this.ea.publish('toast', {
+      type: 'error',
+      message: 'This was unsuccessful'
+    });
   };
 
   updateTags() {
