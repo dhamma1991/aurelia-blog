@@ -76,6 +76,7 @@ export class App {
       This is the proper way to clean up after a subscription */
     this.subscription.dispose();
     this.postSubscription.dispose();
+    this.toastSubscription.dispose();
   }
 
   logout() {
