@@ -28,11 +28,18 @@ export class NewPost {
     this.postService.create(this.post).then(data => {
       /* Publish to something called post-updated, publish the date */
       this.ea.publish('post-updated', Date());
+      this.ea.publish('toast', {
+        type: 'success',
+        message: 'Post created!'
+      });
       /* So when the post is added, the app goes to that post's view
         It does this by going to post-view and then passing through data.slug as the :slug required by that route */
       this.router.navigateToRoute('post-view', {slug: data.slug});
     }).catch(error => {
-      console.log(error);
+      this.ea.publish('toast', {
+        type: 'error',
+        message: error.message
+      });
     });
   };
 };
