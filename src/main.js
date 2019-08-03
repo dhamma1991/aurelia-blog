@@ -3,6 +3,7 @@
 import 'regenerator-runtime/runtime';
 import environment from './environment';
 import {PLATFORM} from 'aurelia-pal';
+import {I18N, Backend} from 'aurelia-i18n';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -11,7 +12,23 @@ export function configure(aurelia) {
     .standardConfiguration()
     .feature(PLATFORM.moduleName('resources/index'))
     /* Register the aurelia-validation plugin */
-    .plugin(PLATFORM.moduleName('aurelia-validation'));
+    .plugin(PLATFORM.moduleName('aurelia-validation'))
+    .plugin('aurelia-i18n', instance => {
+      /* Configure the instance */
+      instance.i18next.use(backend.with(aurelia.loader));
+      return instance.setup({
+        /* Do the backend configuration 
+          First, tell the plugin where the backend should load the configuration files from  */
+        backend: {
+          loadPath: './locales/{{lng}}/{{ns}}.json'
+        },
+        lng: 'en',
+        fallback: 'fr',
+        /* Tell i18n where the namespaces are (i.e. the files) */
+        ns: ['nav', 'post-form'],
+        debug: false
+      });
+    });
 
   aurelia.use.developmentLogging(environment.debug ? 'debug' : 'warn');
 
