@@ -7,14 +7,16 @@ import {AuthorizeStep} from './pipeline-steps/authorize-step';
 import bootstrap from 'bootstrap';
 import moment from 'moment';
 import * as toastr from 'toastr';
+import {I18N} from 'aurelia-i18n';
 
-@inject(PostService, AuthService, EventAggregator)
+@inject(PostService, AuthService, EventAggregator, I18N)
 export class App {
 
-  constructor(PostService, AuthService, EventAggregator) {
+  constructor(PostService, AuthService, EventAggregator, I18N) {
     this.postService = PostService;
     this.authService = AuthService;
     this.ea = EventAggregator;
+    this.i18n = I18N
 
     /* Get the current year to use (currently) in the footer of the app */
     this.currentYear = moment().format('YYYY');
@@ -22,6 +24,7 @@ export class App {
 
   /* Attached is often the preferred life cycle hook for backend calls */ 
   attached() {
+    console.log(this.i18n.getLocale())
     this.currentUser = this.authService.currentUser;
     /* This subscribe is talking to the publish found in login.js 
       This is needed because the frontend does not automatically know when the user has changed
