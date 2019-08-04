@@ -13,9 +13,9 @@ export function configure(aurelia) {
     .feature(PLATFORM.moduleName('resources/index'))
     /* Register the aurelia-validation plugin */
     .plugin(PLATFORM.moduleName('aurelia-validation'))
-    .plugin('aurelia-i18n', instance => {
+    .plugin(PLATFORM.moduleName('aurelia-i18n'), instance => {
       /* Configure the instance */
-      instance.i18next.use(backend.with(aurelia.loader));
+      instance.i18next.use(Backend.with(aurelia.loader));
       return instance.setup({
         /* Do the backend configuration 
           First, tell the plugin where the backend should load the configuration files from  */
