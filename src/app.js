@@ -101,6 +101,13 @@ export class App {
   }
 
   setLocale(locale) {
-    this.i18n.setLocale(locale);
+    console.log(locale);
+    this.i18n.setLocale(locale)
+    .then( () => {
+      // LOADED!
+    })
+    .catch(error => {
+      console.log(error);
+    });
   }
 }
