@@ -1,13 +1,13 @@
 import { PLATFORM } from "aurelia-framework";
 import {inject} from 'aurelia-framework';
 import {EventAggregator} from 'aurelia-event-aggregator';
+import {I18N} from 'aurelia-i18n';
 import {PostService} from './common/services/post-service';
 import {AuthService} from './common/services/auth-service';
 import {AuthorizeStep} from './pipeline-steps/authorize-step';
 import bootstrap from 'bootstrap';
 import moment from 'moment';
 import * as toastr from 'toastr';
-import {I18N} from 'aurelia-i18n';
 
 @inject(PostService, AuthService, EventAggregator, I18N)
 export class App {
@@ -98,5 +98,9 @@ export class App {
         message: error.message
       });
     })
+  }
+
+  setLocale(locale) {
+    this.i18n.setLocale(locale);
   }
 }
