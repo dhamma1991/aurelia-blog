@@ -3,14 +3,14 @@
 
   <form submit.delegate="submit()">
     <div class="form-group">
-      <label for="title">Post Title</label>
+      <label for="title" t="title">Post Title</label>
 
       <!-- The & validate bit tells the validation to validate this input field -->
       <input type="text" class="form-control" placeholder="Your Post Title" value.bind="post.title & validateOnChange">
     </div>
 
     <div class="form-group">
-      <label for="body">Post Body</label>
+      <label for="body" t="body">Post Body</label>
 
       <textarea class="form-control" rows="10" value.bind="post.body & validateOnChange"></textarea>
     </div>
@@ -27,7 +27,7 @@
     <div class="form-group">
       <input type="text" value.bind="newTag">
 
-      <a href="" click.delegate="addTag()">Add Tag</a>
+      <a href="" click.delegate="addTag()" t="addtag">Add Tag</a>
     </div>
 
     <hr>
