@@ -3,5 +3,11 @@
     "login": "Login",
     "signup": "Signup",
     "newpost": "New Post",
-    "logout": "Logout"
+    "logout": "Logout",
+    "title": "Title",
+    "body": "Body",
+    "addTag": "Add Tag",
+    "editPost": "Edit Post",
+    "createPost": "Create Post",
+    "titlePlaceholder": "Your Post Title"
 }
