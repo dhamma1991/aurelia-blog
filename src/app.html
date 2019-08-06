@@ -23,18 +23,18 @@
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" route-href="new-post" if.bind="currentUser">New Post</a>
-                <a class="nav-link" route-href="signup" if.bind="!currentUser">Sign Up</a>
+                <a class="nav-link" route-href="new-post" if.bind="currentUser" t="newpost">New Post</a>
+                <a class="nav-link" route-href="signup" if.bind="!currentUser" t="signup">Sign Up</a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" route-href="login" if.bind="!currentUser">Log In</a>
+                <a class="nav-link" route-href="login" if.bind="!currentUser" t="login">Log In</a>
                 <a class="nav-link" href="#" if.bind="currentUser">${currentUser}</a>
               </li>
 
               <li class="nav-item">
                 <!-- click.delegate is used here instead of setting the route-href -->
-                <a class="nav-link" href="#" if.bind="currentUser" click.delegate="logout()">Log Out</a>
+                <a class="nav-link" href="#" if.bind="currentUser" click.delegate="logout()" t="logout">Log Out</a>
               </li>
             </ul>
           </div>
