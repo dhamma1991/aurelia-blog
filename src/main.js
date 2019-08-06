@@ -29,9 +29,10 @@ export function configure(aurelia) {
         lng: 'en',
         fallbackLng: 'fr',
         attributes: aliases,
+        ns: ['translation'],
         /* Tell i18n where the namespaces are (i.e. the files) */
         // ns: ['nav', 'post-form'],
-        debug: false
+        debug: true
       });
     });
 

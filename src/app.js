@@ -104,7 +104,6 @@ export class App {
     console.log(locale);
     this.i18n.setLocale(locale)
     .then( () => {
-      // LOADED!
     })
     .catch(error => {
       console.log(error);
