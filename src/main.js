@@ -4,7 +4,7 @@ import 'regenerator-runtime/runtime';
 import environment from './environment';
 import {PLATFORM} from 'aurelia-pal';
 import {I18N} from 'aurelia-i18n';
-import Backend from 'i18next-xhr-backend';
+import {Backend, TCustomAttribute} from 'aurelia-i18n';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -15,17 +15,20 @@ export function configure(aurelia) {
     /* Register the aurelia-validation plugin */
     .plugin(PLATFORM.moduleName('aurelia-validation'))
     .plugin(PLATFORM.moduleName('aurelia-i18n'), instance => {
+      let aliases = ['t', 'i18n'];
+
+      TCustomAttribute.configureAliases(aliases);
       /* Configure the instance */
-      instance.i18next.use(Backend);
+      instance.i18next.use(Backend.with(aurelia.loader));
       return instance.setup({
         /* Do the backend configuration 
           First, tell the plugin where the backend should load the configuration files from  */
         backend: {
-          loadPath: '/locales/{{lng}}/{{ns}}.json'
+          loadPath: 'locales/{{lng}}/{{ns}}.json'
         },
         lng: 'en',
         fallbackLng: 'fr',
-        attributes: ['t', 'i18n'],
+        attributes: aliases,
         /* Tell i18n where the namespaces are (i.e. the files) */
         // ns: ['nav', 'post-form'],
         debug: false
