@@ -1,12 +1,15 @@
 <template>
-  <h1>${title}</h1>
+  <!-- The title text here is just placeholder
+    The actual rendered text is provided by i18n. ${title} gets passed through from edit-post.js and new-post.js. The value of ${title} matches the key of the translations -->
+  <h1 t="${title}">Title</h1>
 
   <form submit.delegate="submit()">
     <div class="form-group">
       <label for="title" t="title">Post Title</label>
 
       <!-- The & validate bit tells the validation to validate this input field -->
-      <input type="text" class="form-control" placeholder="Your Post Title" value.bind="post.title & validateOnChange">
+      <!-- Using i18n to translate the text content of attributes is easy; just wrap the attribute name in [] -->
+      <input type="text" class="form-control" placeholder="Your Post Title" value.bind="post.title & validateOnChange" t="[placeholder]titlePlaceholder">
     </div>
 
     <div class="form-group">
@@ -27,7 +30,7 @@
     <div class="form-group">
       <input type="text" value.bind="newTag">
 
-      <a href="" click.delegate="addTag()" t="addtag">Add Tag</a>
+      <a href="" click.delegate="addTag()" t="addTag">Add Tag</a>
     </div>
 
     <hr>
@@ -38,6 +41,6 @@
     </ul>
 
     <!-- Disable the button if there are controller errors -->
-    <button type="submit" class="btn btn-primary" disabled.bind="controller.errors.length > 0">${title}</button>
+    <button type="submit" class="btn btn-primary" disabled.bind="controller.errors.length > 0" t="${title}">Submit</button>
   </form>
 </template>

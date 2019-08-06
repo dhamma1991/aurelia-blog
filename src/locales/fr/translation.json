@@ -6,8 +6,8 @@
     "logout": "Se Déconnecter",
     "title": "Titre",
     "body": "Contenu",
-    "addtag": "Ajouter Marque",
-    "editpost": "Modifier Article",
-    "createpost": "Créer Article",
-    "titleplaceholder": "Votre titre d'article"
+    "addTag": "Ajouter Marque",
+    "editPost": "Modifier Article",
+    "createPost": "Créer Article",
+    "titlePlaceholder": "Votre titre d'article"
 }

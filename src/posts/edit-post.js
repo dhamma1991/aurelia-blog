@@ -31,7 +31,7 @@ export class EditPost {
     })
 
     /* The post-form custom element requires a title, so that is passed through from here */
-    this.title = "Edit Post";
+    this.title = 'editPost';
   };
 
   editPost() {

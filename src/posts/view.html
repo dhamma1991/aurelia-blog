@@ -8,7 +8,7 @@
   <div class="container blog-post-btns">
     <div class="row justify-content-between">
       <a route-href="home" class="btn btn-primary">View All Posts</a>
-      <a if.bind="authService.currentUser === post.author" route-href="route: edit-post; params.bind: {slug: post.slug}" class="btn btn-primary float-right">Edit Post</a>
+      <a if.bind="authService.currentUser === post.author" route-href="route: edit-post; params.bind: {slug: post.slug}" class="btn btn-primary float-right" t="editPost">Edit Post</a>
     </div>
   </div>
 </template>

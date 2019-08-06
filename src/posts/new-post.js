@@ -21,7 +21,7 @@ export class NewPost {
     };
 
     /* The post-form custom element requires a title, so that is passed through from here */
-    this.title = "Create Post";
+    this.title = 'createPost';
   };
 
   newPost() {
