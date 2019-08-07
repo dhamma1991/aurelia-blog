@@ -15,6 +15,9 @@ export class PostForm {
     this.controller = ValidationControllerFactory.createForCurrentScope();
     this.ea = EventAggregator;
     this.i18n = I18N;
+    this.localeSubscription = this.ea.subscribe('locale-changed', updatedAt => {
+      this.setValidation();
+    })
   }
 
   attached() {
@@ -43,10 +46,11 @@ export class PostForm {
   }
 
   postChanged(newValue, oldValue) {
-    /* If a post exists */
+    this.setValidation();
   }
 
   setValidation() {
+    /* If a post exists */
     if (this.post) {
       /* Escaping is used on the variable because its value does not exist at the time it is set */
       validationMessages['required'] = this.i18n.tr('requiredField')
@@ -58,5 +62,9 @@ export class PostForm {
 
       this.controller.validate()
     }
+  }
+
+  detached() {
+    this.localeSubscription.dispose();
   }
 }
