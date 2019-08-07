@@ -44,6 +44,9 @@ export class PostForm {
 
   postChanged(newValue, oldValue) {
     /* If a post exists */
+  }
+
+  setValidation() {
     if (this.post) {
       /* Escaping is used on the variable because its value does not exist at the time it is set */
       validationMessages['required'] = this.i18n.tr('requiredField')
