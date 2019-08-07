@@ -15,9 +15,10 @@ export class PostForm {
     this.controller = ValidationControllerFactory.createForCurrentScope();
     this.ea = EventAggregator;
     this.i18n = I18N;
+    /* This subscription is activated if the user changes the language */
     this.localeSubscription = this.ea.subscribe('locale-changed', updatedAt => {
       this.setValidation();
-    })
+    });
   }
 
   attached() {
@@ -65,6 +66,7 @@ export class PostForm {
   }
 
   detached() {
+    /* Should always dispose of subscriptions */
     this.localeSubscription.dispose();
   }
 }
