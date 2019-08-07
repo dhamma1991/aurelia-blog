@@ -31,25 +31,9 @@ export function configure(aurelia) {
         fallbackLng: 'fr',
         attributes: aliases,
         ns: ['translation'],
-        /* Tell i18n where the namespaces are (i.e. the files) */
-        // ns: ['nav', 'post-form'],
         debug: true
       });
     });
-
-    // ValidationMessageProvider.prototype.getMessage = function(key) {
-    //   const i18n = aurelia.container.get(I18N);
-    //   const translation = i18n.tr(`requiredField`);
-    //   return this.parser.parse(translation);
-    // };
-  
-    // ValidationMessageProvider.prototype.getDisplayName = function(propertyName, displayName) {
-    //   if (displayName !== null && displayName !== undefined) {
-    //     return displayName;
-    //   }
-    //   const i18n = aurelia.container.get(I18N);
-    //   return i18n.tr(propertyName);
-    // };
 
   aurelia.use.developmentLogging(environment.debug ? 'debug' : 'warn');
 
