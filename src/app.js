@@ -102,11 +102,10 @@ export class App {
 
   setLocale(locale) {
     console.log(locale);
-    this.i18n.setLocale(locale)
-    .then( () => {
-    })
-    .catch(error => {
-      console.log(error);
-    });
+    this.i18n.setLocale(locale);
+    // .then(() => {
+    //   this.ea.publish('locale-changed', Date());
+    // });
+
   }
 }

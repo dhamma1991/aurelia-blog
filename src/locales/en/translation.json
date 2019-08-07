@@ -4,10 +4,12 @@
     "signup": "Signup",
     "newpost": "New Post",
     "logout": "Logout",
+
     "title": "Title",
     "body": "Body",
     "addTag": "Add Tag",
     "editPost": "Edit Post",
     "createPost": "Create Post",
-    "titlePlaceholder": "Your Post Title"
+    "titlePlaceholder": "Your Post Title",
+    "requiredField": "You must enter a ${$displayName}."
 }

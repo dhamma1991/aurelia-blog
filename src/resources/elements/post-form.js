@@ -1,18 +1,20 @@
 import {bindable} from 'aurelia-framework';
 import {inject} from 'aurelia-framework';
 import {ValidationRules, ValidationControllerFactory, validationMessages} from 'aurelia-validation';
-import {PostService} from '../../common/services/post-service';
 import {EventAggregator} from 'aurelia-event-aggregator';
+import {I18N} from 'aurelia-i18n';
+import {PostService} from '../../common/services/post-service';
 
-@inject(PostService, ValidationControllerFactory, EventAggregator)
+@inject(PostService, ValidationControllerFactory, EventAggregator, I18N)
 export class PostForm {
   @bindable post;
   @bindable title;
 
-  constructor(PostService, ValidationControllerFactory, EventAggregator) {
+  constructor(PostService, ValidationControllerFactory, EventAggregator, I18N) {
     this.postService = PostService;
     this.controller = ValidationControllerFactory.createForCurrentScope();
     this.ea = EventAggregator;
+    this.i18n = I18N;
   }
 
   attached() {
@@ -44,14 +46,14 @@ export class PostForm {
     /* If a post exists */
     if (this.post) {
       /* Escaping is used on the variable because its value does not exist at the time it is set */
-      validationMessages['required'] = `You must enter a \${$displayName}.`
+      validationMessages['required'] = this.i18n.tr('requiredField')
       /* Set the validation rules */
       ValidationRules
-        .ensure('title').displayName("Post Title").required().minLength(2)
-        .ensure('body').displayName("Post Body").required()
+        .ensure('title').displayName(this.i18n.tr('title')).required().minLength(2)
+        .ensure('body').displayName(this.i18n.tr('body')).required()
         .on(this.post);
 
-      this.controller.validate();
+      this.controller.validate()
     }
   }
 }

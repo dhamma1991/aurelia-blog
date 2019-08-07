@@ -4,6 +4,7 @@ import 'regenerator-runtime/runtime';
 import environment from './environment';
 import {PLATFORM} from 'aurelia-pal';
 import {I18N} from 'aurelia-i18n';
+import {ValidationMessageProvider} from 'aurelia-validation';
 import {Backend, TCustomAttribute} from 'aurelia-i18n';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -35,6 +36,20 @@ export function configure(aurelia) {
         debug: true
       });
     });
+
+    // ValidationMessageProvider.prototype.getMessage = function(key) {
+    //   const i18n = aurelia.container.get(I18N);
+    //   const translation = i18n.tr(`requiredField`);
+    //   return this.parser.parse(translation);
+    // };
+  
+    // ValidationMessageProvider.prototype.getDisplayName = function(propertyName, displayName) {
+    //   if (displayName !== null && displayName !== undefined) {
+    //     return displayName;
+    //   }
+    //   const i18n = aurelia.container.get(I18N);
+    //   return i18n.tr(propertyName);
+    // };
 
   aurelia.use.developmentLogging(environment.debug ? 'debug' : 'warn');
 
