@@ -1,6 +1,9 @@
 import moment from 'moment';
 
 export class DateFormatValueConverter {
+
+  /* Listen for the locale to change */
+  signals = ['locale-changed'];
   /*  To refer to this value converter in a view, the convention is to use camel case (in this case it owuld be dateFormat) */
   toView(value) {
     /* In this case, the value being passed in is the date to be converted 

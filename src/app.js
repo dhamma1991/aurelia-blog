@@ -1,5 +1,4 @@
-import { PLATFORM } from "aurelia-framework";
-import {inject} from 'aurelia-framework';
+import {PLATFORM, inject, signalBindings} from 'aurelia-framework';
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {I18N} from 'aurelia-i18n';
 import {PostService} from './common/services/post-service';
@@ -105,6 +104,8 @@ export class App {
     this.i18n.setLocale(locale)
     .then(() => {
       this.ea.publish('locale-changed', Date());
+      /* Signal to the bindings that the locale has changed */
+      signalBindings('locale-changed');
     });
 
   }
